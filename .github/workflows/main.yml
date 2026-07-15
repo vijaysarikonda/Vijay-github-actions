@@ -1,0 +1,26 @@
+name: My First Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print Welcome Message
+        run: echo "Hello GitHub Actions"
+
+      - name: Print Date
+        run: date
+
+      - name: Print Current Directory
+        run: pwd
+
+      - name: List Files
+        run: ls -la

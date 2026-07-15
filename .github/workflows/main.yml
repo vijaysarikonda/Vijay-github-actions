@@ -1,4 +1,4 @@
-name: My First Pipeline
+name: Multiple Jobs Example
 
 on:
   push:
@@ -6,21 +6,22 @@ on:
       - main
 
 jobs:
-  hello-job:
+  job1:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
+      - name: Print Message
+        run: echo "This is Job 1"
 
-      - name: Print Welcome Message
-        run: echo "Hello GitHub Actions"
-
-      - name: Print Date
+      - name: Show Date
         run: date
 
-      - name: Print Current Directory
-        run: pwd
+  job2:
+    runs-on: ubuntu-latest
 
-      - name: List Files
-        run: ls -la
+    steps:
+      - name: Print Message
+        run: echo "This is Job 2"
+
+      - name: Show Current Directory
+        run: pwd
